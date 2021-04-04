@@ -1,0 +1,22 @@
+{
+  "name": "react-customcalendar",
+  "version": "0.0.1",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "rollup -c"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@rollup/plugin-commonjs": "^18.0.0",
+    "rollup": "^2.44.0",
+    "rollup-plugin-scss": "^2.6.1",
+    "rollup-plugin-typescript2": "^0.30.0",
+    "tslib": "^2.1.0",
+    "typescript": "^4.2.3"
+  },
+  "dependencies": {
+    "react": "^17.0.2"
+  }
+}

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Hello World</title>
+    <script src="https://unpkg.com/react@17/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <script src="../dist/index.js"></script>
+    <link href="../dist/index.css" type="text/css" rel="stylesheet" />
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="text/babel">
+      const Calendar = () => {
+        const {
+          dates,
+          toNextMonth,
+          toPrevMonth,
+          currentMonthInfo,
+          weekDays
+        } = ReactCustomcalendar.useCalendar();
+
+        return (
+          <>
+            <div className="calendar">
+              <div className="calendar__header">
+                <button onClick={toPrevMonth}>{`<`}</button>
+                <div>{currentMonthInfo.currentMonthName}</div>
+                <button onClick={toNextMonth}>{`>`}</button>
+              </div>
+              <div className="calendar__daysOfWeek">
+                {weekDays.map((i, index) => (
+                  <div key={index}>{i}</div>
+                ))}
+              </div>
+              <div className="calendar__body">
+                {dates.map((i, index) => (
+                  <ReactCustomcalendar.Day {...i} />
+                ))}
+              </div>
+            </div>
+            <pre>{JSON.stringify(currentMonthInfo, null, 2)}</pre>
+          </>
+        );
+      };
+
+
+      ReactDOM.render(
+        <Calendar />,
+        document.getElementById('root')
+      );
+    </script>
+  </body>
+</html>
